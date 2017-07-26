@@ -9,6 +9,8 @@
 			margin:0;
 			padding:0;
 			background-color: black;
+			color: white;
+			font-family: courier;
 		}
 		#wrapper {
 			width:1200px;
@@ -18,14 +20,19 @@
 			color: #a9a9a9;
 			text-align: center;
 			font-size: 48px;
+			font-weight: bold;
 		}
 		#left-menu {
 			float: left;
 			width: 200px;
 		}
-		#left-menu a{
+		#left-menu a {
 			color: #a8a8a8;
 			font-size: 18px;
+		}
+		#left-menu ul {
+			list-style-type: circle;
+			color: #a8a8a8;
 		}
 		#main {
 			float: left;
@@ -47,16 +54,21 @@
 <body>
 <div id="wrapper">
 	<div id="head">
-		Welcome to Jonathan's weblog!
+		Jonathan's New Life in Canada	
 	</div>
 	<div id="left-menu">
-		<ul>
-			<li><a href="./PlainTextResume.html" target="iframe_article">Plain Text Resume</a></li>
+		<div>TECH</div>
+		<ul id="tech-list">
+			<li><a href="./tech/PlainTextResume.html" target="iframe_article">How to Write a Plain Text Resume</a></li>
+		</ul>
+		<div>LIFE</div>
+		<ul id="life-list">
 			<li><a href="./About.html" target="iframe_article">About</a></li>
 		</ul>
 	</div>
+	<!-- Article Dispaly area -->
 	<div id="main"> 
-		<iframe id="article" name="iframe_article" src="./PlainTextResume.html"></iframe>
+		<iframe id="article" name="iframe_article" src="./tech/PlainTextResume.html"></iframe>
 	</div>
 	<div id="foot"> 
 	CopyLeft. Contact: jinqiangzhao2017&#x0040;gmail.com
