@@ -1,16 +1,200 @@
+<!doctype html>
 <html>
 <head>
 	<title>
 	</title>
 	<style>
 		h1 {
-			color: red;
+			font-family: Courier; 
+			font-size: 24px;
+			text-align: center;
+		}
+		h2 {
+			font-family: Courier; 
+			font-size: 22px;
+			font-style: bold;
+		}
+		h3 {
+			font-family: Courier; 
+			font-size: 20px;
+			font-style: bold;
+		}
+		p {
+			font-size: 18px;
+			font-family: Courier; 
+		}	
+		pre {
+			font-size: 12px;
+			background-color: grey;
 		}
 	</style>
 </head>
 <body>
-<h1>
-How to write and print a PLAIN TEXT resume?
-</h1>
+<h1>How to write and print a PLAIN TEXT resume?</h1>
+<p>
+A plain text resume is perfect for IT workers.
+It needs some skills to write and print plain text resumes.
+</p>
+<h2>Page setting and font selection</h2>
+<p>
+The most common paper in North America is Letter which is the most acceptable 
+paper for resumes. The Letter's size is (W)215.9mm X (H)279.4mm. For a resume,
+the proper side margin is 1 inch(2.54cm). So, the valid width for resume content
+is 215.9-25.4*2 = 165.1mm.
+</p>
+<p>
+Since the paper settings are fixed, it's time to choose a proper font family for
+our resumes. As the resume contains only PLAIN TEXT, monospaced(every character has
+the same width) font is a must.As for me, "Courier" is my best choice.
+
+</p>
+<p>
+Next, we should determine the right font size. Many people suggest that the best font
+ size for a resume is 10pt-14pt. According to the suggestion, I choose Courier 12pt.
+An important thing worth knowing is that the font size is very different from the font
+ width. When is comes to Courier, font width is about font size multiplying 0.6. As a 
+ result, the Courier 12pt font's width is actually 12*0.6=7.2pt=7.2 * (25.4/72)mm=2.54mm.
+Then we can calculate how many characters can one line contain: 165.1mm / 2.54mm = 65.
+</p>
+<p>
+As an hacker programmer, you may be used to the the 80x24 screen size. A Letter paper is
+ absolutely different from a screen. So don't write 80(more bigger than 65) characters in one line.
+</p>
+<p>
+As a computer worker, we often like 64(2^4) more than 65. Finally, I choose 64 as the maximum
+ characters in one line.
+</p>
+<p style="color: blue;">
+SUMMARY:<br/>
+Paper size: Letter<br/>
+Pape side margin: left 2.54cm, right 2.54cm </br>
+Font name: Courier </br>
+Font size: 12pt </br>
+Line capacity: 64 characters
+
+</p>
+<h2>Sample Resume</h2>
+<p>
+resume.txt
+<pre>
+/***********************************************************
+Jonathan Zhao, System Administrator
+jinqiangzhao2017@gmail.com, 647-907-4288
+***********************************************************/
+
+SUMMARY OF QUALIFICATIONS
+============================================================
+* Over 10 years of experience in C/C++
+* Strong background in Unix environment
+* Proven skills in network device administration
+* demonstrated ability to database management
+
+PROFESSIONAL EXPERIENCE
+============================================================
+# System Administrator                            2009-2017
+  XiGang Info Center, DaLian, China
+
+* Kept more than 50 virtual and physical servers running
+  properly
+* Managed storage systems like NAS, SAN
+* Designed a 3 layers network for more than 500 users
+* Deployed and maintained oracle 11g databases
+* Wrote tools for data center management
+* Deep understanding of Linux and Windows operating systems
+
+# Teaching assistant                              2006-2008
+  Naval Training Center, WeHai, China
+
+* Collected and documented requirements for training software
+* Developed web based online test system running on asp.net
+* Administrated Linux servers and mysql databases
+
+EDUCATION
+============================================================
+# Bachelor of Computer Software                        2013
+  Northeastern University, ShenYang, China
+
+# Master of Military                                   2006
+  Dalian Naval Academy, DaLian, China
+
+</pre>
+</p>
+<h2>Print to a Paper Resume</h2>
+<p>
+Right now, I can email my PLAIN TEXT resume everywhere as long as a 
+monospaced font is selected when sending the email. But I also need a 
+physcally printed resume which can be brought with me for the future 
+interview. The request for printing is coming.
+</p>
+<h3>Directlly printing by lpr/lp</h3>
+<p>
+Most linux systems now support cups and lp/lpr commands. Since a plain text
+ file contains only text without any format information such as font and
+ page setting, the format information must be given as options of the lp/lpr
+  command.
+<pre>
+lp -o media=Letter \
+   -o page-left=72 \
+   -o page-top=72 \
+   -cpi=10 \
+   -lpi=6 \
+   resume.txt
+</pre>
+</p>
+<p>
+NOTE: -cpi=10 #characters per inch(25.4mm/2.54mm=10) 
+</p>
+<h3>Converting to pdf before printing</h3>
+<p>
+If sometimes I cannot use my lovely Linux to print my resume, what should I do?
+Today even mobile phones can be used to connect to a printer. So, a file able to 
+be printed through all devices is my target. 
+</p>
+<p>
+PDF, as the most protable file format, can not only provide the same view for all
+ screens, but also for printers. Before printing my resume, converting it to a pdf 
+ format file is a really good choice.
+</p>
+<p>
+There are a lot of tools used to generate a pdf file from a plain text file. As my 
+linux OS is CentOS, I only show the built-in tools here. We need 2 apps, enscript
+(in ghostscript package) and ps2pdf(in enscript package). 
+"enscript" is responsible for converting txt to postscript, while "ps2pdf" is 
+responsible for converting postscript to pdf.
+</p>
+<p>
+The following cmdline generates resume.ps from resume.txt.
+<pre>
+enscript --no-header \
+	--margins=72:72:72:72 \
+	--font=Courier12 \
+	--media=Letter \
+	--output=resume.ps \
+	resume.txt
+</pre>
+
+</p>
+<p>
+NOTE: --margins=left,right,top,bottom<br/>
+--font=Courier12: font name Courier, font size 12pt.<br/>
+The following cmdline converts resume.ps to resume.pdf.
+
+</p>
+<p>
+<pre>
+ps2pdf resume.ps resume.pdf
+</pre>
+</p>
+<p>
+Now we have the resume.pdf! Printing a pdf file is so easy in all softwares, including 
+Adobe Reader available for almost all devices, and lp/lpr. In fact, using lpr to print 
+a pdf file is exremely simple!
+<pre>
+lp resume.pdf
+</pre>
+</p>
+<p>
+Because the resume.pdf is ready, besides printing, it can be emailed as an attachment to anyone.
+</p>
 </body>
 </html>

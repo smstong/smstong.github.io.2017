@@ -1,16 +1,58 @@
+<!doctype html>
 <html>
 <head>
 	<title>
+		Welcome to Jonathan's weblog.
 	</title>
 	<style>
-		h1 {
-			color: red;
+		body {
+			margin:0;
+			padding:0;
+			background-color: black;
+		}
+		#wrapper {
+			width:1000px;
+			margin: 0 auto;
+		}
+		#head {
+			color: brown;
+			text-align: center;
+			font-size: 48px;
+		}
+		#left-menu {
+			float: left;
+			width: 200px;
+		}
+		#left-menu a{
+			color: brown;
+			font-size: 18px;
+		}
+		#main {
+			float: left;
+			width: 800px;
+			background-color: white;
+		}
+		iframe {
+			width: 800px;
+			height: 900px;
+			border: none;
 		}
 	</style>
 </head>
 <body>
-<div>
-	<iframe src="./PlainTextResume.html"></iframe>
+<div id="wrapper">
+	<div id="head">
+		Welcome to Jonathan's weblog!
+	</div>
+	<div id="left-menu">
+		<ul>
+			<li><a href="./PlainTextResume.html" target="iframe_article">Plain Text Resume</a></li>
+			<li><a href="./404.html" target="iframe_article">Not ready</a></li>
+		</ul>
+	</div>
+	<div id="main"> 
+		<iframe id="article" name="iframe_article" src="./PlainTextResume.html"></iframe>
+	</div>
 
 </div>
 </body>
