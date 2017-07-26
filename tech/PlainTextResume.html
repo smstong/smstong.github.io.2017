@@ -44,20 +44,20 @@ is 215.9-25.4*2 = 165.1mm.
 <p>
 Since the paper settings are fixed, it's time to choose a proper font family for
 our resumes. As the resume contains only PLAIN TEXT, monospaced(every character has
-the same width) font is a must.As for me, "Courier" is my best choice.
+the same width) font is a must. As for me, "Courier" is my best choice.
 
 </p>
 <p>
 Next, we should determine the right font size. Many people suggest that the best font
  size for a resume is 10pt-14pt. According to the suggestion, I choose Courier 12pt.
 An important thing worth knowing is that the font size is very different from the font
- width. When is comes to Courier, font width is about font size multiplying 0.6. As a 
+ width. When it comes to Courier, font width is about font size multiplying 0.6. As
  result, the Courier 12pt font's width is actually 12*0.6=7.2pt=7.2 * (25.4/72)mm=2.54mm.
-Then we can calculate how many characters can one line contain: 165.1mm / 2.54mm = 65.
+Then we can calculate how many characters one line can contain: 165.1mm / 2.54mm = 65.
 </p>
 <p>
-As an hacker programmer, you may be used to the the 80x24 screen size. A Letter paper is
- absolutely different from a screen. So don't write 80(more bigger than 65) characters in one line.
+As a hacker programmer, you may be used to the 80x24 screen size. A Letter paper is
+ absolutely different from a screen. So don't write 80(much bigger than 65) characters in one line.
 </p>
 <p>
 As a computer worker, we often like 64(2^6) more than 65. Finally, I choose 64 as the maximum
@@ -66,7 +66,7 @@ As a computer worker, we often like 64(2^6) more than 65. Finally, I choose 64 a
 <p style="font-weight:bold;">
 SUMMARY:<br/>
 Paper size: Letter<br/>
-Pape side margin: left 2.54cm, right 2.54cm </br>
+Page side margin: left 2.54cm, right 2.54cm </br>
 Font name: Courier </br>
 Font size: 12pt </br>
 Line capacity: 64 characters
@@ -86,7 +86,7 @@ SUMMARY OF QUALIFICATIONS
 * Over 10 years of experience in C/C++
 * Strong background in Unix environment
 * Proven skills in network device administration
-* demonstrated ability to database management
+* Demonstrated ability to database management
 
 PROFESSIONAL EXPERIENCE
 ============================================================
@@ -127,7 +127,7 @@ interview. The request for printing is coming.
 </p>
 <h3>Directly printing by lpr/lp</h3>
 <p>
-Most linux systems now support cups and lp/lpr commands. Since a plain text
+Most Linux systems now support cups and lp/lpr commands. Since a plain text
  file contains only text without any format information such as font and
  page setting, the format information must be given as options of the lp/lpr
   command.
@@ -150,13 +150,13 @@ Today even mobile phones can be used to connect to a printer. So, a file able to
 be printed through all devices is my target. 
 </p>
 <p>
-PDF, as the most protable file format, can not only provide the same view for all
+PDF, as the most portable file format, can not only provide the same view for all
  screens, but also for printers. Before printing my resume, converting it to a pdf 
  format file is a really good choice.
 </p>
 <p>
 There are a lot of tools used to generate a pdf file from a plain text file. As my 
-linux OS is CentOS, I only show the built-in tools here. We need 2 apps, enscript
+Linux OS is CentOS, I only show the built-in tools here. We need 2 apps, enscript
 (in ghostscript package) and ps2pdf(in enscript package). 
 "enscript" is responsible for converting txt to postscript, while "ps2pdf" is 
 responsible for converting postscript to pdf.
@@ -187,7 +187,7 @@ ps2pdf resume.ps resume.pdf
 <p>
 Now we have the resume.pdf! Printing a pdf file is so easy in all softwares, including 
 Adobe Reader available for almost all devices, and lp/lpr. In fact, using lpr to print 
-a pdf file is exremely simple!
+a pdf file is extremely simple!
 <pre>
 lp resume.pdf
 </pre>
